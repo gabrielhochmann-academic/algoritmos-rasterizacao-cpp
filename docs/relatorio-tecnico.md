@@ -46,6 +46,18 @@ A rotina `pontoMedio()` trabalha com coordenadas inteiras, diferença absoluta d
 
 A validação automática verifica vetor não vazio, coincidência dos extremos e adjacência entre pixels consecutivos.
 
+### Galeria completa dos oito testes
+
+| Testes 1 e 2 | Testes 3 e 4 |
+|---|---|
+| ![Teste 1 — diagonal decrescente](images/bresenham/teste-01.png) | ![Teste 3 — sentido inverso](images/bresenham/teste-03.png) |
+| ![Teste 2 — diagonal crescente no sentido inverso](images/bresenham/teste-02.png) | ![Teste 4 — inclinação positiva](images/bresenham/teste-04.png) |
+
+| Testes 5 e 6 | Testes 7 e 8 |
+|---|---|
+| ![Teste 5 — vertical descendente](images/bresenham/teste-05.png) | ![Teste 7 — horizontal crescente](images/bresenham/teste-07.png) |
+| ![Teste 6 — vertical ascendente](images/bresenham/teste-06.png) | ![Teste 8 — horizontal no sentido inverso](images/bresenham/teste-08.png) |
+
 ## 4. Exercício 2 — Cohen–Sutherland
 
 O algoritmo classifica cada extremo de segmento em relação a uma janela retangular usando quatro bits: esquerda, direita, inferior e superior. Quando ambos os códigos são zero, o segmento é aceito trivialmente; quando possuem um bit externo em comum, é rejeitado trivialmente. Nos demais casos, um extremo é substituído pela interseção com uma borda da janela [2].
@@ -61,6 +73,16 @@ A janela usada é `xmin = 200`, `ymin = 150`, `xmax = 400` e `ymax = 350`.
 | IJ | Recortado nas bordas inferior e direita. |
 
 As evidências visuais distinguem: entrada sem recorte, resultado recortado e comparação. A imagem do resultado final mostra apenas os trechos aceitos; os segmentos externos não são exibidos nela.
+
+### Galeria das três etapas do recorte
+
+| Entrada sem recorte | Resultado após Cohen–Sutherland |
+|---|---|
+| ![Segmentos originais e janela de recorte](images/cohen-sutherland/01-entrada-sem-recorte.png) | ![Somente segmentos aceitos após o recorte](images/cohen-sutherland/02-resultado-recortado.png) |
+
+![Comparação entre segmentos de entrada e trechos recortados](images/cohen-sutherland/03-comparacao.png)
+
+*Comparação: segmentos originais em cinza claro e trechos visíveis em cores.*
 
 ## 5. Exercício 3 — Desenho de polígonos
 
