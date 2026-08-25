@@ -1,4 +1,4 @@
-# Relatório técnico — Algoritmos de Rasterização
+# Relatório técnico: Algoritmos de Rasterização
 
 ## Identificação
 
@@ -13,7 +13,7 @@
 
 O projeto implementa quatro algoritmos de Computação Gráfica em uma grade discreta de pixels. O objetivo é demonstrar como primitivas geométricas podem ser convertidas em posições de amostragem, sem delegar a rasterização a funções prontas de bibliotecas gráficas.
 
-A versão pública preserva os algoritmos e testes da entrega acadêmica, mas organiza o código em módulos. A função de Bresenham ficou em uma única fonte e é reutilizada para evitar duplicação; os módulos de Cohen–Sutherland e Scanline mantêm sua lógica de códigos de região, ET e AET.
+A versão pública preserva os algoritmos e testes da entrega acadêmica, mas organiza o código em módulos. A função de Bresenham ficou em uma única fonte e é reutilizada para evitar duplicação; os módulos de Cohen-Sutherland e Scanline mantêm sua lógica de códigos de região, ET e AET.
 
 ## 2. Arquitetura
 
@@ -29,7 +29,7 @@ A versão pública preserva os algoritmos e testes da entrega acadêmica, mas or
 
 A modularização não altera a teoria dos exercícios. Ela evita duas cópias independentes da mesma rotina de Bresenham e permite que a mesma lista de vértices seja usada para desenhar a fronteira no Exercício 3 e preencher o interior no Exercício 4.
 
-## 3. Exercício 1 — Ponto médio / Bresenham
+## 3. Exercício 1: Ponto médio / Bresenham
 
 A rotina `pontoMedio()` trabalha com coordenadas inteiras, diferença absoluta dos eixos e um termo de erro incremental. Ela inclui os pontos inicial e final e trata todos os sentidos de percurso. A proposta original de Bresenham usa cálculo incremental sem multiplicação ou divisão no laço principal [1].
 
@@ -50,15 +50,15 @@ A validação automática verifica vetor não vazio, coincidência dos extremos 
 
 | Testes 1 e 2 | Testes 3 e 4 |
 |---|---|
-| ![Teste 1 — diagonal decrescente](images/bresenham/teste-01.png) | ![Teste 3 — sentido inverso](images/bresenham/teste-03.png) |
-| ![Teste 2 — diagonal crescente no sentido inverso](images/bresenham/teste-02.png) | ![Teste 4 — inclinação positiva](images/bresenham/teste-04.png) |
+| ![Teste 1: diagonal decrescente](images/bresenham/teste-01.png) | ![Teste 3: sentido inverso](images/bresenham/teste-03.png) |
+| ![Teste 2: diagonal crescente no sentido inverso](images/bresenham/teste-02.png) | ![Teste 4: inclinação positiva](images/bresenham/teste-04.png) |
 
 | Testes 5 e 6 | Testes 7 e 8 |
 |---|---|
-| ![Teste 5 — vertical descendente](images/bresenham/teste-05.png) | ![Teste 7 — horizontal crescente](images/bresenham/teste-07.png) |
-| ![Teste 6 — vertical ascendente](images/bresenham/teste-06.png) | ![Teste 8 — horizontal no sentido inverso](images/bresenham/teste-08.png) |
+| ![Teste 5: vertical descendente](images/bresenham/teste-05.png) | ![Teste 7: horizontal crescente](images/bresenham/teste-07.png) |
+| ![Teste 6: vertical ascendente](images/bresenham/teste-06.png) | ![Teste 8: horizontal no sentido inverso](images/bresenham/teste-08.png) |
 
-## 4. Exercício 2 — Cohen–Sutherland
+## 4. Exercício 2: Cohen-Sutherland
 
 O algoritmo classifica cada extremo de segmento em relação a uma janela retangular usando quatro bits: esquerda, direita, inferior e superior. Quando ambos os códigos são zero, o segmento é aceito trivialmente; quando possuem um bit externo em comum, é rejeitado trivialmente. Nos demais casos, um extremo é substituído pela interseção com uma borda da janela [2].
 
@@ -76,7 +76,7 @@ As evidências visuais distinguem: entrada sem recorte, resultado recortado e co
 
 ### Galeria das três etapas do recorte
 
-| Entrada sem recorte | Resultado após Cohen–Sutherland |
+| Entrada sem recorte | Resultado após Cohen-Sutherland |
 |---|---|
 | ![Segmentos originais e janela de recorte](images/cohen-sutherland/01-entrada-sem-recorte.png) | ![Somente segmentos aceitos após o recorte](images/cohen-sutherland/02-resultado-recortado.png) |
 
@@ -84,7 +84,7 @@ As evidências visuais distinguem: entrada sem recorte, resultado recortado e co
 
 *Comparação: segmentos originais em cinza claro e trechos visíveis em cores.*
 
-## 5. Exercício 3 — Desenho de polígonos
+## 5. Exercício 3: Desenho de polígonos
 
 O polígono é representado por uma lista ordenada de vértices. Cada vértice é ligado ao próximo por Bresenham, e o último é ligado ao primeiro para fechar a fronteira.
 
@@ -95,7 +95,7 @@ O polígono é representado por uma lista ordenada de vértices. Cada vértice �
 
 O Exercício 3 desenha apenas a **fronteira**. O preenchimento do interior pertence ao Exercício 4.
 
-## 6. Exercício 4 — Preenchimento Scanline
+## 6. Exercício 4: Preenchimento Scanline
 
 O algoritmo de Scanline percorre a figura por linhas horizontais. A Tabela de Arestas (ET) agrupa as arestas pelo menor valor de `y`; a Tabela de Arestas Ativas (AET) mantém as que cruzam a linha atual. As interseções são ordenadas por `x`, e os intervalos entre pares de interseções são preenchidos [3].
 
@@ -139,7 +139,7 @@ A compilação de validação usou C++17, `-Wall`, `-Wextra`, `-pedantic` e sani
 | Sanitizador de endereço | Nenhum erro reportado. |
 | Sanitizador de comportamento indefinido | Nenhum erro reportado. |
 | Bresenham | Oito testes aprovados. |
-| Cohen–Sutherland | Segmentos de teste classificados e recortados corretamente. |
+| Cohen-Sutherland | Segmentos de teste classificados e recortados corretamente. |
 | Polígonos com Bresenham | Fechamento aprovado nos dois polígonos. |
 | Scanline | Hexágono e quadrado preenchidos. |
 
@@ -148,7 +148,7 @@ A compilação de validação usou C++17, `-Wall`, `-Wextra`, `-pedantic` e sani
 | Exercício | Limitação conhecida |
 |---|---|
 | Bresenham | Opera com coordenadas inteiras e não aplica antialiasing. |
-| Cohen–Sutherland | Trata apenas segmentos de reta e janela retangular alinhada aos eixos. |
+| Cohen-Sutherland | Trata apenas segmentos de reta e janela retangular alinhada aos eixos. |
 | Desenho de polígonos | Não valida auto-interseções ou repetição de vértices. |
 | Scanline | Validado para polígonos simples deste trabalho; não implementa tratamento explícito de furos, auto-interseções ou regras alternativas de preenchimento. |
 
