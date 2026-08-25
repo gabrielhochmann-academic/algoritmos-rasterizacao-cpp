@@ -91,36 +91,27 @@ void salvarPoligono(const Poligono& poligono, const std::string& caminho) {
     imagem.salvar(caminho);
 }
 
-void exibirResumo(const Poligono& poligono, const std::string& caminho) {
+void exibirResumo(const Poligono& poligono) {
     const std::vector<std::vector<cg::Ponto>> lados = rasterizarLados(poligono);
-    std::cout << poligono.nome << '\n' << "  Vértices: ";
-    for (std::size_t i = 0; i < poligono.vertices.size(); ++i) {
-        std::cout << '(' << poligono.vertices[i].x << ", " << poligono.vertices[i].y << ')';
-        if (i + 1 < poligono.vertices.size()) {
-            std::cout << " -> ";
-        }
-    }
-    std::cout << " -> primeiro vértice\n";
-
     std::size_t pixelsNosLados = 0;
-    for (std::size_t i = 0; i < lados.size(); ++i) {
-        pixelsNosLados += lados[i].size();
-        std::cout << "  Lado " << i + 1 << ": " << lados[i].size() << " pixels\n";
+    for (const std::vector<cg::Ponto>& lado : lados) {
+        pixelsNosLados += lado.size();
     }
-    std::cout << "  Pixels gerados nos lados (com repetição dos vértices): " << pixelsNosLados << '\n'
-              << "  Fechamento: " << (poligonoEstaFechado(poligono, lados) ? "APROVADO" : "REPROVADO") << '\n'
-              << "  Evidência: " << caminho << "\n\n";
+
+    std::cout << poligono.nome << ": " << lados.size() << " lados, "
+              << pixelsNosLados << " pixels, "
+              << (poligonoEstaFechado(poligono, lados) ? "fechado" : "aberto") << '\n';
 }
 
 }  // namespace
 
 int executarExercicio3() {
     const Poligono hexagonoDoEnunciado{
-        "Polígono 1 — hexágono do enunciado (A-B-C-D-E-F)",
+        "Hexágono do enunciado (A-B-C-D-E-F)",
         {{2, 3}, {7, 1}, {13, 5}, {13, 11}, {7, 7}, {2, 9}}
     };
     const Poligono pentagonoDeEscolhaLivre{
-        "Polígono 2 — pentágono convexo de escolha livre",
+        "Pentágono de escolha livre",
         {{3, 2}, {8, 1}, {13, 4}, {11, 10}, {5, 11}}
     };
 
@@ -128,8 +119,8 @@ int executarExercicio3() {
     salvarPoligono(hexagonoDoEnunciado, "saidas/exercicio3/poligono_enunciado.ppm");
     salvarPoligono(pentagonoDeEscolhaLivre, "saidas/exercicio3/poligono_escolha_livre.ppm");
 
-    std::cout << "=== Exercício 3 — Desenho de polígonos com Bresenham ===\n\n";
-    exibirResumo(hexagonoDoEnunciado, "saidas/exercicio3/poligono_enunciado.ppm");
-    exibirResumo(pentagonoDeEscolhaLivre, "saidas/exercicio3/poligono_escolha_livre.ppm");
+    std::cout << "Exercício 3: Polígonos com Bresenham\n";
+    exibirResumo(hexagonoDoEnunciado);
+    exibirResumo(pentagonoDeEscolhaLivre);
     return 0;
 }

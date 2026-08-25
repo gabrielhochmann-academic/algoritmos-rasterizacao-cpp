@@ -114,7 +114,7 @@ public:
     }
 
     static void imprimirLog(int xInicial, int xFinal, int y) {
-        std::cout << "  Pinta (" << xInicial << ',' << y << ") até (" << xFinal << ',' << y << ")\n";
+        std::cout << "  y=" << y << ": x=" << xInicial << ".." << xFinal << '\n';
     }
 
 private:
@@ -193,24 +193,19 @@ int executarExercicio4() {
     salvarPreenchimentoEmImagem(hexagono, "saidas/exercicio4/hexagono_preenchido.ppm");
     salvarPreenchimentoEmImagem(quadrado, "saidas/exercicio4/quadrado_preenchido.ppm");
 
-    std::cout << "=== Exercício 4 — Preenchimento por Scanline ===\n\n";
-    std::cout << "Polígono 1 — hexágono do enunciado (A, B, C, D, E, F)\n"
-              << "--- Trechos preenchidos (uma linha por scanline) ---\n";
+    std::cout << "Exercício 4: Scanline\n";
+    std::cout << "Hexágono do enunciado\n";
     ScanlineRenderer::preencherPoligono(hexagono, GraficosConsole::imprimirLog);
     GraficosConsole::limpar();
     ScanlineRenderer::preencherPoligono(hexagono, GraficosConsole::pintarNaGrade);
-    std::cout << "\n--- Desenho (eixo y cresce para cima; eixo x para a direita) ---\n";
+    std::cout << "Grade:\n";
     GraficosConsole::imprimirDesenho();
 
-    std::cout << "\nPolígono 2 — quadrado de escolha livre\n"
-              << "--- Trechos preenchidos ---\n";
+    std::cout << "Quadrado de escolha livre\n";
     ScanlineRenderer::preencherPoligono(quadrado, GraficosConsole::imprimirLog);
     GraficosConsole::limpar();
     ScanlineRenderer::preencherPoligono(quadrado, GraficosConsole::pintarNaGrade);
-    std::cout << "\n--- Desenho ---\n";
+    std::cout << "Grade:\n";
     GraficosConsole::imprimirDesenho();
-    std::cout << "\nEvidências visuais geradas:\n"
-              << "  - saidas/exercicio4/hexagono_preenchido.ppm\n"
-              << "  - saidas/exercicio4/quadrado_preenchido.ppm\n";
     return 0;
 }
