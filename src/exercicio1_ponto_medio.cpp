@@ -108,7 +108,7 @@ int executarExercicio1() {
     std::filesystem::create_directories("saidas/exercicio1");
     bool todosOsTestesPassaram = true;
 
-    std::cout << "=== Exercício 1 — Algoritmo do ponto médio (Bresenham) ===\n\n";
+    std::cout << "Exercício 1: Bresenham\n";
     for (std::size_t indice = 0; indice < testes.size(); ++indice) {
         const CasoDeTeste& teste = testes[indice];
         const std::vector<cg::Ponto> reta = cg::pontoMedio(
@@ -117,19 +117,15 @@ int executarExercicio1() {
         const std::string caminho = nomeDoArquivo(indice + 1, teste);
         salvarEvidenciaVisual(reta, teste, caminho);
 
-        std::cout << "Teste " << indice + 1 << ": pontoMedio("
-                  << teste.xInicial << ", " << teste.yInicial << ", "
-                  << teste.xFinal << ", " << teste.yFinal << ")\n"
-                  << "  Pixels gerados: " << reta.size() << '\n'
-                  << "  Primeiro pixel: (" << reta.front().x << ", " << reta.front().y << ")\n"
-                  << "  Último pixel: (" << reta.back().x << ", " << reta.back().y << ")\n"
-                  << "  Verificação: " << (passou ? "APROVADO" : "REPROVADO") << '\n'
-                  << "  Evidência: " << caminho << "\n\n";
+        std::cout << "Teste " << indice + 1 << ": ("
+                  << teste.xInicial << ',' << teste.yInicial << ") -> ("
+                  << teste.xFinal << ',' << teste.yFinal << ") | pixels: "
+                  << reta.size() << " | " << (passou ? "ok" : "falhou") << '\n';
         todosOsTestesPassaram = todosOsTestesPassaram && passou;
     }
 
     std::cout << (todosOsTestesPassaram
-                      ? "Resultado final: todos os oito testes foram aprovados.\n"
-                      : "Resultado final: pelo menos um teste falhou.\n");
+                      ? "8 de 8 testes aprovados.\n"
+                      : "Há teste com falha.\n");
     return todosOsTestesPassaram ? 0 : 1;
 }

@@ -150,9 +150,9 @@ int executarExercicio2() {
     desenharSegmentosOriginais(comparacao, segmentos);
 
     bool todosOsTestesPassaram = true;
-    std::cout << "=== Exercício 2 — Cohen–Sutherland ===\n"
-              << "Janela de recorte: [" << clip.xmin << ", " << clip.xmax << "] x ["
-              << clip.ymin << ", " << clip.ymax << "]\n\n";
+    std::cout << "Exercício 2: Cohen-Sutherland\n"
+              << "Janela: [" << clip.xmin << ',' << clip.xmax << "] x ["
+              << clip.ymin << ',' << clip.ymax << "]\n";
 
     for (std::size_t i = 0; i < segmentos.size(); ++i) {
         const Segmento& segmento = segmentos[i];
@@ -162,20 +162,17 @@ int executarExercicio2() {
         double cy1 = segmento.y1;
         const bool aceita = cohenSutherland(cx0, cy0, cx1, cy1, clip);
 
-        std::cout << "Segmento " << segmento.nome << " (" << segmento.x0 << ',' << segmento.y0
-                  << ") - (" << segmento.x1 << ',' << segmento.y1 << ")\n";
         if (!aceita) {
-            std::cout << "  Resultado: REJEITADO (totalmente fora da janela)\n\n";
+            std::cout << segmento.nome << ": rejeitado\n";
             continue;
         }
 
         const bool dentroDaJanela = pontoDentroOuNaBorda(cx0, cy0, clip) &&
                                       pontoDentroOuNaBorda(cx1, cy1, clip);
         todosOsTestesPassaram = todosOsTestesPassaram && dentroDaJanela;
-        std::cout << "  Parte visível: (" << cx0 << ',' << cy0 << ") - ("
-                  << cx1 << ',' << cy1 << ")\n"
-                  << "  Verificação dos extremos: " << (dentroDaJanela ? "APROVADO" : "REPROVADO")
-                  << "\n\n";
+        std::cout << segmento.nome << ": (" << cx0 << ',' << cy0 << ") -> ("
+                  << cx1 << ',' << cy1 << ") | "
+                  << (dentroDaJanela ? "ok" : "falhou") << '\n';
 
         desenharReta(resultado,
                      static_cast<int>(std::lround(cx0)), static_cast<int>(std::lround(cy0)),
@@ -191,10 +188,8 @@ int executarExercicio2() {
     resultado.salvar("saidas/exercicio2/resultado_recortado.ppm");
     comparacao.salvar("saidas/exercicio2/comparacao_entrada_e_resultado.ppm");
 
-    std::cout << "Evidências geradas:\n"
-              << "  - saidas/exercicio2/entrada_sem_recorte.ppm\n"
-              << "  - saidas/exercicio2/resultado_recortado.ppm\n"
-              << "  - saidas/exercicio2/comparacao_entrada_e_resultado.ppm\n"
-              << "Resultado final: " << (todosOsTestesPassaram ? "APROVADO" : "REPROVADO") << '\n';
+    std::cout << (todosOsTestesPassaram
+                      ? "Recortes aprovados.\n"
+                      : "Há recorte com falha.\n");
     return todosOsTestesPassaram ? 0 : 1;
 }

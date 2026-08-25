@@ -9,7 +9,7 @@ namespace {
 void exibirUso(const char* nomePrograma) {
     std::cout << "Uso: " << nomePrograma << " [1|2|3|4|todos]\n"
               << "  1     Executa Bresenham (ponto médio).\n"
-              << "  2     Executa Cohen–Sutherland.\n"
+              << "  2     Executa Cohen-Sutherland.\n"
               << "  3     Executa desenho de polígonos com Bresenham.\n"
               << "  4     Executa preenchimento Scanline.\n"
               << "  todos Executa os quatro exercícios em sequência.\n";
@@ -18,11 +18,11 @@ void exibirUso(const char* nomePrograma) {
 int executarTodos() {
     int resultado = 0;
     resultado |= executarExercicio1();
-    std::cout << "\n============================================================\n\n";
+    std::cout << '\n';
     resultado |= executarExercicio2();
-    std::cout << "\n============================================================\n\n";
+    std::cout << '\n';
     resultado |= executarExercicio3();
-    std::cout << "\n============================================================\n\n";
+    std::cout << '\n';
     resultado |= executarExercicio4();
     return resultado;
 }
