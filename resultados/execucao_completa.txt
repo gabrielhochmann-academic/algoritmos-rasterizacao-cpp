@@ -1,0 +1,180 @@
+=== Exercício 1 — Algoritmo do ponto médio (Bresenham) ===
+
+Teste 1: pontoMedio(10, 100, 100, 10)
+  Pixels gerados: 91
+  Primeiro pixel: (10, 100)
+  Último pixel: (100, 10)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_01_de_(10,100)_a_(100,10).ppm
+
+Teste 2: pontoMedio(100, 10, 10, 100)
+  Pixels gerados: 91
+  Primeiro pixel: (100, 10)
+  Último pixel: (10, 100)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_02_de_(100,10)_a_(10,100).ppm
+
+Teste 3: pontoMedio(200, 100, 1, 1)
+  Pixels gerados: 200
+  Primeiro pixel: (200, 100)
+  Último pixel: (1, 1)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_03_de_(200,100)_a_(1,1).ppm
+
+Teste 4: pontoMedio(1, 1, 200, 100)
+  Pixels gerados: 200
+  Primeiro pixel: (1, 1)
+  Último pixel: (200, 100)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_04_de_(1,1)_a_(200,100).ppm
+
+Teste 5: pontoMedio(200, 100, 200, 10)
+  Pixels gerados: 91
+  Primeiro pixel: (200, 100)
+  Último pixel: (200, 10)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_05_de_(200,100)_a_(200,10).ppm
+
+Teste 6: pontoMedio(200, 10, 200, 100)
+  Pixels gerados: 91
+  Primeiro pixel: (200, 10)
+  Último pixel: (200, 100)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_06_de_(200,10)_a_(200,100).ppm
+
+Teste 7: pontoMedio(50, 100, 200, 100)
+  Pixels gerados: 151
+  Primeiro pixel: (50, 100)
+  Último pixel: (200, 100)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_07_de_(50,100)_a_(200,100).ppm
+
+Teste 8: pontoMedio(200, 100, 50, 100)
+  Pixels gerados: 151
+  Primeiro pixel: (200, 100)
+  Último pixel: (50, 100)
+  Verificação: APROVADO
+  Evidência: saidas/exercicio1/teste_08_de_(200,100)_a_(50,100).ppm
+
+Resultado final: todos os oito testes foram aprovados.
+
+============================================================
+
+=== Exercício 2 — Cohen–Sutherland ===
+Janela de recorte: [200, 400] x [150, 350]
+
+Segmento EF (40,120) - (150,420)
+  Resultado: REJEITADO (totalmente fora da janela)
+
+Segmento AB (260,200) - (300,260)
+  Parte visível: (260,200) - (300,260)
+  Verificação dos extremos: APROVADO
+
+Segmento CD (320,220) - (380,430)
+  Parte visível: (320,220) - (357.143,350)
+  Verificação dos extremos: APROVADO
+
+Segmento GH (230,100) - (420,320)
+  Parte visível: (273.182,150) - (400,296.842)
+  Verificação dos extremos: APROVADO
+
+Segmento IJ (350,60) - (430,250)
+  Parte visível: (387.895,150) - (400,178.75)
+  Verificação dos extremos: APROVADO
+
+Evidências geradas:
+  - saidas/exercicio2/entrada_sem_recorte.ppm
+  - saidas/exercicio2/resultado_recortado.ppm
+  - saidas/exercicio2/comparacao_entrada_e_resultado.ppm
+Resultado final: APROVADO
+
+============================================================
+
+=== Exercício 3 — Desenho de polígonos com Bresenham ===
+
+Polígono 1 — hexágono do enunciado (A-B-C-D-E-F)
+  Vértices: (2, 3) -> (7, 1) -> (13, 5) -> (13, 11) -> (7, 7) -> (2, 9) -> primeiro vértice
+  Lado 1: 6 pixels
+  Lado 2: 7 pixels
+  Lado 3: 7 pixels
+  Lado 4: 7 pixels
+  Lado 5: 6 pixels
+  Lado 6: 7 pixels
+  Pixels gerados nos lados (com repetição dos vértices): 40
+  Fechamento: APROVADO
+  Evidência: saidas/exercicio3/poligono_enunciado.ppm
+
+Polígono 2 — pentágono convexo de escolha livre
+  Vértices: (3, 2) -> (8, 1) -> (13, 4) -> (11, 10) -> (5, 11) -> primeiro vértice
+  Lado 1: 6 pixels
+  Lado 2: 6 pixels
+  Lado 3: 7 pixels
+  Lado 4: 7 pixels
+  Lado 5: 10 pixels
+  Pixels gerados nos lados (com repetição dos vértices): 36
+  Fechamento: APROVADO
+  Evidência: saidas/exercicio3/poligono_escolha_livre.ppm
+
+
+============================================================
+
+=== Exercício 4 — Preenchimento por Scanline ===
+
+Polígono 1 — hexágono do enunciado (A, B, C, D, E, F)
+--- Trechos preenchidos (uma linha por scanline) ---
+  Pinta (7,1) até (7,1)
+  Pinta (5,2) até (9,2)
+  Pinta (2,3) até (10,3)
+  Pinta (2,4) até (12,4)
+  Pinta (2,5) até (13,5)
+  Pinta (2,6) até (13,6)
+  Pinta (2,7) até (7,7)
+  Pinta (7,7) até (13,7)
+  Pinta (2,8) até (5,8)
+  Pinta (9,8) até (13,8)
+  Pinta (10,9) até (13,9)
+  Pinta (12,10) até (13,10)
+
+--- Desenho (eixo y cresce para cima; eixo x para a direita) ---
+................
+................
+............##..
+..........####..
+..####...#####..
+..############..
+..############..
+..############..
+..###########...
+..#########.....
+.....#####......
+.......#........
+................
+
+Polígono 2 — quadrado de escolha livre
+--- Trechos preenchidos ---
+  Pinta (3,2) até (10,2)
+  Pinta (3,3) até (10,3)
+  Pinta (3,4) até (10,4)
+  Pinta (3,5) até (10,5)
+  Pinta (3,6) até (10,6)
+  Pinta (3,7) até (10,7)
+  Pinta (3,8) até (10,8)
+
+--- Desenho ---
+................
+................
+................
+................
+...########.....
+...########.....
+...########.....
+...########.....
+...########.....
+...########.....
+...########.....
+................
+................
+
+Evidências visuais geradas:
+  - saidas/exercicio4/hexagono_preenchido.ppm
+  - saidas/exercicio4/quadrado_preenchido.ppm

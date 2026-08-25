@@ -1,0 +1,23 @@
+# Artefatos de compilação
+/build/
+/cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+*.cmake.user
+*.o
+*.obj
+*.exe
+*.out
+*.pdb
+*.ilk
+*.idb
+
+# Saídas reproduzíveis geradas pelo programa
+/saidas/
+
+# Configurações de IDE e sistema
+/.vs/
+/.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
