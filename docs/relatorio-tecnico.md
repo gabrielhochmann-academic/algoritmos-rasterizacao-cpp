@@ -93,6 +93,12 @@ O polígono é representado por uma lista ordenada de vértices. Cada vértice �
 | Hexágono do enunciado | `(2,3)`, `(7,1)`, `(13,5)`, `(13,11)`, `(7,7)`, `(2,9)` | Fechamento aprovado. |
 | Pentágono de escolha livre | `(3,2)`, `(8,1)`, `(13,4)`, `(11,10)`, `(5,11)` | Fechamento aprovado. |
 
+### Evidências dos dois polígonos
+
+| Polígono do enunciado | Polígono de escolha livre |
+|---|---|
+| ![Hexágono com fronteira rasterizada](images/poligonos/poligono-enunciado.png) | ![Pentágono com fronteira rasterizada](images/poligonos/poligono-escolha-livre.png) |
+
 O Exercício 3 desenha apenas a **fronteira**. O preenchimento do interior pertence ao Exercício 4.
 
 ## 6. Exercício 4: Preenchimento Scanline
@@ -105,6 +111,12 @@ O algoritmo de Scanline percorre a figura por linhas horizontais. A Tabela de Ar
 | Quadrado de escolha livre | Área interna preenchida de forma contínua. |
 
 O algoritmo usa a convenção de preencher a borda inferior e excluir a borda superior. Essa regra evita dupla contagem de pixels em arestas e vértices compartilhados; por isso, o quadrado mostra preenchimento até a última scanline interna, enquanto seu contorno superior permanece apenas como fronteira visual.
+
+### Evidências dos dois preenchimentos
+
+| Hexágono do enunciado | Quadrado de escolha livre |
+|---|---|
+| ![Hexágono preenchido por Scanline](images/scanline/hexagono-preenchido.png) | ![Quadrado preenchido por Scanline](images/scanline/quadrado-preenchido.png) |
 
 ## 7. Compilação e execução
 
