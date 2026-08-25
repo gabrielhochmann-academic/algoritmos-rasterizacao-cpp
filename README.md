@@ -1,6 +1,6 @@
 # Algoritmos de Rasterização em C++
 
-Implementação acadêmica, em C++17, de quatro algoritmos fundamentais de Computação Gráfica: **Bresenham**, **Cohen–Sutherland**, desenho de polígonos por segmentos rasterizados e preenchimento **Scanline**.
+Implementação acadêmica, em C++17, de quatro algoritmos fundamentais de Computação Gráfica: **Bresenham**, **Cohen-Sutherland**, desenho de polígonos por segmentos rasterizados e preenchimento **Scanline**.
 
 > Projeto colaborativo desenvolvido para a disciplina de Computação Gráfica. O código foi organizado para estudo, reprodução dos testes e demonstração dos resultados.
 
@@ -9,25 +9,25 @@ Implementação acadêmica, em C++17, de quatro algoritmos fundamentais de Compu
 | Exercício | Algoritmo | Demonstração |
 |---:|---|---|
 | 1 | Ponto médio / Bresenham para retas em todos os octantes | Oito casos de teste, incluindo diagonais, verticais e horizontais. |
-| 2 | Cohen–Sutherland para recorte de segmentos | Aceitação, rejeição e recorte dos segmentos `EF`, `AB`, `CD`, `GH` e `IJ`. |
+| 2 | Cohen-Sutherland para recorte de segmentos | Aceitação, rejeição e recorte dos segmentos `EF`, `AB`, `CD`, `GH` e `IJ`. |
 | 3 | Desenho de polígonos com Bresenham | Hexágono do enunciado e pentágono de escolha livre. |
 | 4 | Preenchimento Scanline com ET e AET | Preenchimento do hexágono e de um quadrado de escolha livre. |
 
 ## Evidências visuais
 
-| Bresenham | Cohen–Sutherland |
+| Bresenham | Cohen-Sutherland |
 |---|---|
-| ![Teste diagonal de Bresenham](docs/images/bresenham-teste-01.png) | ![Resultado do recorte Cohen–Sutherland](docs/images/cohen-sutherland-resultado.png) |
+| ![Teste diagonal de Bresenham](docs/images/bresenham/teste-01.png) | ![Resultado do recorte Cohen-Sutherland](docs/images/cohen-sutherland/02-resultado-recortado.png) |
 
 | Polígono com Bresenham | Preenchimento Scanline |
 |---|---|
-| ![Fronteira de polígono rasterizada](docs/images/poligono-bresenham.png) | ![Hexágono preenchido por Scanline](docs/images/scanline-hexagono.png) |
+| ![Fronteira de polígono rasterizada](docs/images/poligonos/poligono-enunciado.png) | ![Hexágono preenchido por Scanline](docs/images/scanline/hexagono-preenchido.png) |
 
 A imagem do Exercício 3 mostra somente a **fronteira** do polígono. Já a imagem do Exercício 4 mostra o **interior preenchido**; a região azul é produzida pelo algoritmo Scanline.
 
 ## Como executar
 
-### CMake — recomendado no Windows, Visual Studio e VS Code
+### CMake - recomendado no Windows, Visual Studio e VS Code
 
 ```bash
 cmake -S . -B build
