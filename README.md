@@ -83,8 +83,3 @@ O [relatório técnico](docs/relatorio-tecnico.md) descreve arquitetura, testes,
 | Diogo Rafael Jardim Melo Pasa | Exercício 2; documentação. |
 | Iuri Cordeiro | Exercício 4. |
 
-Os créditos são preservados por se tratar de um trabalho colaborativo. O repositório não inclui e-mail, número de matrícula, nome da professora ou outros dados de contato dos participantes.
-
-## Contexto acadêmico
-
-Este repositório é uma versão pública e organizada do trabalho entregue. Ele é destinado a fins educacionais e de portfólio; não substitui o acompanhamento de conteúdos, critérios ou avaliações da disciplina.
